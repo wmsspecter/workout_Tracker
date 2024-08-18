@@ -1,0 +1,49 @@
+# # # Python Program built to use the website Nutritionix API to create workout tracker log.
+# # An API for the website Sheety was also used to generate data for input into Google sheets.
+# Program: Workout Tracker w/ APIs
+# Developer: Michael Alvaredelacampa
+# ALGORITHIM: Initialize User Information:
+#
+# Set constants for GENDER, WEIGHT_KG, HEIGHT_CM, and AGE.
+# Store APP_ID and API_KEY as lists (though they should be strings in a corrected version).
+# Define the exercise_endpoint URL for Nutritionix API.
+# Define the sheet_endpoint URL for Sheety API.
+# Get User Input:
+#
+# Prompt the user to input details about the exercises they performed (workout_text).
+# Set Up Headers and Parameters:
+#
+# Create a headers dictionary containing:
+# x-app-id with the application ID.
+# x-app-key with the API key.
+# Create a parameters dictionary containing:
+# The query field with the user's workout input.
+# The gender, weight_kg, height_cm, and age fields based on the constants defined earlier.
+# Send a POST Request to Nutritionix API:
+#
+# Make a POST request to the exercise_endpoint with the parameters and headers.
+# Parse the JSON response and store it in the result variable.
+# Print the API Response:
+#
+# Print the JSON result to check the exercise details returned by the Nutritionix API.
+# Set Up Date and Time:
+#
+# Get the current date and time using datetime.now().
+# Format the current date as dd/mm/yyyy and the time as hh:mm:ss and store them in today_date and now_time variables, respectively.
+# Iterate Over Exercises:
+#
+# Loop through each exercise in the result["exercises"] list:
+# Create a sheet_inputs dictionary that:
+# Includes the current date (today_date).
+# Includes the current time (now_time).
+# Converts the exercise name to title case and stores it.
+# Stores the exercise duration (duration_min).
+# Stores the calories burned (nf_calories).
+# Send a POST Request to Sheety API:
+#
+# Make a POST request to the sheet_endpoint to log the workout data.
+# Use basic authentication with the provided username ("malvarez") and password ("marine1989").
+# (Commented out alternatives for using a bearer token, which is not currently implemented.)
+# Print the Response from Sheety:
+#
+# Print the response text from the Sheety API to check if the workout was logged successfully.
